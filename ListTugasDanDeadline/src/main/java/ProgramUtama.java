@@ -1,6 +1,7 @@
 import static java.awt.image.ImageObserver.HEIGHT;
 import java.util.*;
 import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -16,15 +17,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ProgramUtama extends javax.swing.JFrame {
     SetterGetter halo = new SetterGetter();
+    ShowData show = new ShowData();
 
     /**
      * Creates new form ProgramUtama
      */
     public ProgramUtama() {
         initComponents();
-        ButtonGroup status = new ButtonGroup();
-        status.add(penting);
-        status.add(gapenting);
+        penting.setActionCommand("Penting");
+        gapenting.setActionCommand("Ga Penting");
+        penting.setSelected(true);
     }
     
     void MatkulList(String matkul1,String matkul2,String matkul3,String matkul4,String matkul5,String matkul6,String matkul7,String matkul8,String matkul9, String matkul10,String matkul11,String matkul12){
@@ -49,6 +51,29 @@ public class ProgramUtama extends javax.swing.JFrame {
             listmatkul.addItem(iter.next());
         }
     }
+    
+    /*public void AddRow(Object[] dataRow) {
+        namatgs.setText(namatgs.getText());
+        halo.setNama(namatgs.getText());
+        String Semester = semester.getSelectedItem().toString();
+        halo.setSemester(Semester);
+        String Matkul = listmatkul.getSelectedItem().toString();
+        halo.setMatkul (Matkul);
+        String Deadline = ((JTextField)deadline.getDateEditor().getUiComponent()).getText();
+        halo.setDeadline(Deadline);
+        keterangan.setText(keterangan.getText());
+        halo.setKeterangan(keterangan.getText());
+        String Status = status.getSelection().getActionCommand();
+        halo.setStatus(Status);
+        if (namatgs.getText().trim().isEmpty()|| Semester=="Pilih Semester..." || Matkul=="Pilih Matkul..." || Deadline.trim().isEmpty() || keterangan.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "ISI DENGAN LENGKAP", "WARNING", HEIGHT);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "data berhasil ditambahkan", "SUCCESSFULLY", HEIGHT);
+            DefaultTableModel model= (DefaultTableModel) list.getModel();
+            model.addRow(new Object[]{halo.getNama(),halo.getSemester(),halo.getMatkul(),halo.getDeadline(),halo.getStatus(),halo.getKeterangan()});
+        }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,6 +84,7 @@ public class ProgramUtama extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        status = new javax.swing.ButtonGroup();
         deadline = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         list = new javax.swing.JTable();
@@ -96,6 +122,11 @@ public class ProgramUtama extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(list);
@@ -148,12 +179,19 @@ public class ProgramUtama extends javax.swing.JFrame {
         jScrollPane2.setViewportView(keterangan);
 
         clear.setText("Clear");
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Status");
 
+        status.add(penting);
         penting.setText("Tugas Penting");
 
-        gapenting.setText("Tugas Tidak Penting");
+        status.add(gapenting);
+        gapenting.setText("Tugas Ga Penting");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -255,8 +293,6 @@ public class ProgramUtama extends javax.swing.JFrame {
 
     private void semesterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_semesterItemStateChanged
         // TODO add your handling code here:
-        ArrayList<String> matkul = new ArrayList<>();
-        Iterator<String> iter;
         if (semester.getSelectedItem().equals("1")){
             MatkulList("Bahasa Indonesia","Bahasa Inggris","Dasar Komputer dan Pemrograman","Fisika Dasar 1","Kalkulus 1","Olah Raga","Pancasila","Pendidikan Agama","Teknologi Informasi","","","");
         }
@@ -288,6 +324,9 @@ public class ProgramUtama extends javax.swing.JFrame {
         else if (semester.getSelectedItem().equals("Matkul Pilihan Ganjil")){
             MatkulList("Data Mining","Grafika Komputer","Keamanan Sistem Informasi","Pemrograman Basis Data","Pemrograman Berorientasi Objek Lanjut","Pengenalan Ucapan","Pengolahan Paralel","Pengolahan Sinyal","Perancangan Mikroprosesor","Sistem Tertanam dan Terdistribusi","","");
         }
+        else {
+           MatkulList("Lainnya","","","","","","","","","","",""); 
+        }
     }//GEN-LAST:event_semesterItemStateChanged
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
@@ -302,16 +341,74 @@ public class ProgramUtama extends javax.swing.JFrame {
         halo.setDeadline(Deadline);
         keterangan.setText(keterangan.getText());
         halo.setKeterangan(keterangan.getText());
-        JOptionPane.showMessageDialog(null, "data berhasil ditambahkan", "SUCCESSFULLY", HEIGHT);
-        DefaultTableModel model= (DefaultTableModel) list.getModel();
-        model.insertRow(0, new Object[]{halo.getNama(),halo.getSemester(),halo.getMatkul(),halo.getDeadline(),halo.getStatus(),halo.getKeterangan()});
+        String Status = status.getSelection().getActionCommand();
+        halo.setStatus(Status);
+        if (namatgs.getText().trim().isEmpty()|| Semester=="Pilih Semester..." || Matkul=="Pilih Matkul..." || Deadline.trim().isEmpty() || keterangan.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "ISI DENGAN LENGKAP", "WARNING", HEIGHT);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "data berhasil ditambahkan", "SUCCESSFULLY", HEIGHT);
+            DefaultTableModel model= (DefaultTableModel) list.getModel();
+            model.addRow(new Object[]{halo.getNama(),halo.getSemester(),halo.getMatkul(),halo.getDeadline(),halo.getStatus(),halo.getKeterangan()});
+        }
     }//GEN-LAST:event_addActionPerformed
 
     private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model= (DefaultTableModel) list.getModel();
-        model.removeRow(model.getRowCount() - 1);
+        if (model.getRowCount()>=1){
+            model.removeRow(0);
+        }
+        else {
+        }
     }//GEN-LAST:event_removeActionPerformed
+
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+        // TODO add your handling code here:
+        namatgs.setText("");
+        deadline.setDate(null);
+        semester.setSelectedItem("Pilih Semester...");
+        keterangan.setText("");
+        penting.setSelected(true);
+    }//GEN-LAST:event_clearActionPerformed
+
+    private void listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listMouseClicked
+        // TODO add your handling code here:
+        int index = list.getSelectedRow();
+        DefaultTableModel model= (DefaultTableModel) list.getModel();
+        
+        String Nama = model.getValueAt(index, 0).toString();
+        halo.setNama(Nama);
+        String Semester = model.getValueAt(index, 1).toString();
+        halo.setSemester(Semester);
+        String Matkul = model.getValueAt(index, 2).toString();
+        halo.setMatkul(Matkul);
+        String Deadline = model.getValueAt(index, 3).toString();
+        halo.setDeadline(Deadline);
+        String Status = model.getValueAt(index, 4).toString();
+        halo.setStatus(Status);
+        String Keterangan = model.getValueAt(index, 5).toString();
+        halo.setKeterangan(Keterangan);
+        
+        show.setVisible(true);
+        show.pack();
+        show.setLocationRelativeTo(null);
+        show.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        show.Nama.setText(halo.getNama());
+        show.semester.setSelectedItem(halo.getSemester());
+        show.Matkul.setSelectedItem(halo.getMatkul());
+        show.deadlinelbl.setText(halo.getDeadline());
+        deadline.setDate(null);
+        if (Status == "Penting") {
+            show.penting1.setSelected(true);
+        }
+        else {
+            String a = "halo.gapenting";
+            show.gapenting.setSelected(true);
+        }
+        show.Keterangan.setText(halo.getKeterangan());
+    }//GEN-LAST:event_listMouseClicked
 
     /**
      * @param args the command line arguments
@@ -363,11 +460,12 @@ public class ProgramUtama extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea keterangan;
-    private javax.swing.JTable list;
+    public javax.swing.JTable list;
     private javax.swing.JComboBox<String> listmatkul;
     private javax.swing.JTextField namatgs;
     private javax.swing.JRadioButton penting;
     private javax.swing.JButton remove;
     private javax.swing.JComboBox<String> semester;
+    private javax.swing.ButtonGroup status;
     // End of variables declaration//GEN-END:variables
 }
