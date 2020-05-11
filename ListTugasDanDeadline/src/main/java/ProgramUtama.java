@@ -17,6 +17,29 @@ public class ProgramUtama extends javax.swing.JFrame {
     public ProgramUtama() {
         initComponents();
     }
+    
+    void MatkulList(String matkul1,String matkul2,String matkul3,String matkul4,String matkul5,String matkul6,String matkul7,String matkul8,String matkul9, String matkul10,String matkul11,String matkul12){
+        ArrayList<String> matkul = new ArrayList<>();
+        Iterator<String> iter;
+        listmatkul.removeAllItems();
+        matkul.add("Pilih Matkul...");
+        matkul.add(matkul1);
+        matkul.add(matkul2);
+        matkul.add(matkul3);
+        matkul.add(matkul4);
+        matkul.add(matkul5);
+        matkul.add(matkul6);
+        matkul.add(matkul7);
+        matkul.add(matkul8);
+        matkul.add(matkul9);
+        matkul.add(matkul10);
+        matkul.add(matkul11);
+        matkul.add(matkul12);
+        iter=matkul.iterator();
+        while(iter.hasNext()){
+            listmatkul.addItem(iter.next());
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,7 +100,7 @@ public class ProgramUtama extends javax.swing.JFrame {
 
         jLabel4.setText("Matkul Semester");
 
-        semester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Semester...", "1", "2", "3", "4", "5", "6", "7", "8" }));
+        semester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Semester...", "1", "2", "3", "4", "5", "6", "7", "8", "Matkul Pilihan Genap", "Matkul Pilihan Ganjil" }));
         semester.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 semesterItemStateChanged(evt);
@@ -150,56 +173,35 @@ public class ProgramUtama extends javax.swing.JFrame {
         ArrayList<String> matkul = new ArrayList<>();
         Iterator<String> iter;
         if (semester.getSelectedItem().equals("1")){
-            listmatkul.removeAllItems();
-            matkul.add("Pilih Matkul...");
-            matkul.add("Bahasa Indonesia");
-            matkul.add("Bahasa Inggris");
-            matkul.add("Dasar Komputer dan Pemrograman");
-            matkul.add("Fisika Dasar 1");
-            matkul.add("Kalkulus 1");
-            matkul.add("Olah Raga");
-            matkul.add("Pancasila");
-            matkul.add("Pendidikan Agama");
-            matkul.add("Teknologi Informasi");
-            iter=matkul.iterator();
-            while(iter.hasNext()){
-                listmatkul.addItem(iter.next());
-            }
+            MatkulList("Bahasa Indonesia","Bahasa Inggris","Dasar Komputer dan Pemrograman","Fisika Dasar 1","Kalkulus 1","Olah Raga","Pancasila","Pendidikan Agama","Teknologi Informasi","","","");
         }
         else if (semester.getSelectedItem().equals("2")){
-            listmatkul.removeAllItems();
-            matkul.add("Pilih Matkul...");
-            matkul.add("Algoritma dan Pemrograman");
-            matkul.add("Elektronika Dasar");
-            matkul.add("Fisika Dasar 2");
-            matkul.add("Kalkulus 2");
-            matkul.add("Kewarganegaraan");
-            matkul.add("Konsep Jaringan Komputer");
-            matkul.add("Praktikum DKP");
-            matkul.add("Praktikum Fisdas 1");
-            matkul.add("Sistem Digital");
-            iter=matkul.iterator();
-            while(iter.hasNext()){
-                listmatkul.addItem(iter.next());
-            }
+            MatkulList("Algoritma dan Pemrograman","Elektronika Dasar","Fisika Dasar 2","Kalkulus 2","Kewarganegaraan","Konsep Jaringan Komputer","Praktikum DKP","Praktikum Fisdas 1","Sistem Digital","","","");
         }
-        else if (semester.getSelectedItem().equals(3)){
-            
+        else if (semester.getSelectedItem().equals("3")){
+            MatkulList("Dasar Sistem Kendali","Kewirausahaan","Matematika Teknik","Organisasi Komputer","Pengantar Perangkat Bergerak","Praktikum Fisdas 2","Praktikum Sisdig","Sistem Operasi","Struktur Data","Teknik Antarmuka dan Periferal","Teknik Mikroprosesor","");
+
         }
-        else if (semester.getSelectedItem().equals(4)){
-            
+        else if (semester.getSelectedItem().equals("4")){
+            MatkulList("Arsitektur Komputer","Jaringan Komputer 1","Kecakapan Antar Personal","Kriptografi","Metodologi Penelitian","Pemrograman Bergerak","Praktikum TAP","Praktikum TM","Sistem Basis Data","Teknik Telekomunikasi Seluler","Tranduser dan Sensor","");
         }
-        else if (semester.getSelectedItem().equals(5)){
-            
+        else if (semester.getSelectedItem().equals("5")){
+            MatkulList("Bahasa Pemrograman Rakitan","Jaringan Komputer 2","Metode Numerik","Pemrograman Berorientasi Obyek","Praktikum Jarkom 1","Praktikum PPB","Praktikum SBD","Probabilitas dan Statistik","Rekayasa Perangkat Lunak","Robotika","Sistem Digital Lanjut","Sistem Tertanam");
         }
-        else if (semester.getSelectedItem().equals(6)){
-            
+        else if (semester.getSelectedItem().equals("6")){
+            MatkulList("Etika Profesi","Jaringan Komputer Lanjut","Kerja Praktek","Multimedia","Praktikum Jarkom 2","Praktikum Robotika","Praktikum RPL","Praktikum Sisdig Lanjut","Rekayasa Perangkat Lunak Berbasis Komponen","Sistem Operasi Waktu Nyata","","");
         }
-        else if (semester.getSelectedItem().equals(7)){
-            
+        else if (semester.getSelectedItem().equals("7")){
+            MatkulList("Interaksi Manusia dan Komputer","Manajemen Trafik","Pemrograman Jaringan","Praktikum Jarkom Lanjut","Praktikum Multimedia","Praktikum RPL Berbasis Komponen","","","","","","");
         }
-        else if (semester.getSelectedItem().equals(8)){
-            
+        else if (semester.getSelectedItem().equals("8")){
+            MatkulList("Kuliah Kerja Lapangan","Kuliah Kerja Nyata","Tugas Akhir","","","","","","","","","");
+        }
+        else if (semester.getSelectedItem().equals("Matkul Pilihan Genap")){
+            MatkulList("Desain Sistem VLSI","Jaringan Syaraf Tiruan","Keamanan Jaringan Komputer","Kecerdasan Buatan","Logika Fuzzy","Pemrograman Game","Pemrograman Java","Pengolahan Citra dan Pengenalan Pola","Perencanaan Strategis Sistem dan Teknologi Informasi","Sistem Informasi","Sistem Terintegrasi","Telekomunikasi Satelit");
+        }
+        else if (semester.getSelectedItem().equals("Matkul Pilihan Ganjil")){
+            MatkulList("Data Mining","Grafika Komputer","Keamanan Sistem Informasi","Pemrograman Basis Data","Pemrograman Berorientasi Objek Lanjut","Pengenalan Ucapan","Pengolahan Paralel","Pengolahan Sinyal","Perancangan Mikroprosesor","Sistem Tertanam dan Terdistribusi","","");
         }
     }//GEN-LAST:event_semesterItemStateChanged
 
