@@ -25,29 +25,6 @@ public class ShowData extends javax.swing.JFrame {
      */
     public ShowData() {
         initComponents();
-        penting1.setSelected(true);
-    }
-    void MatkulList(String matkul1,String matkul2,String matkul3,String matkul4,String matkul5,String matkul6,String matkul7,String matkul8,String matkul9, String matkul10,String matkul11,String matkul12){
-        ArrayList<String> matkul = new ArrayList<>();
-        Iterator<String> iter;
-        Matkul.removeAllItems();
-        matkul.add("Pilih Matkul...");
-        matkul.add(matkul1);
-        matkul.add(matkul2);
-        matkul.add(matkul3);
-        matkul.add(matkul4);
-        matkul.add(matkul5);
-        matkul.add(matkul6);
-        matkul.add(matkul7);
-        matkul.add(matkul8);
-        matkul.add(matkul9);
-        matkul.add(matkul10);
-        matkul.add(matkul11);
-        matkul.add(matkul12);
-        iter=matkul.iterator();
-        while(iter.hasNext()){
-            Matkul.addItem(iter.next());
-        }
     }
 
     /**
@@ -59,7 +36,6 @@ public class ShowData extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        status = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -67,17 +43,13 @@ public class ShowData extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        Nama = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Keterangan = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        semester = new javax.swing.JComboBox<>();
-        Matkul = new javax.swing.JComboBox<>();
-        Deadline = new com.toedter.calendar.JDateChooser();
-        penting1 = new javax.swing.JRadioButton();
-        gapenting = new javax.swing.JRadioButton();
-        deadlinelbl = new javax.swing.JLabel();
+        Keterangan = new javax.swing.JLabel();
+        Nama = new javax.swing.JLabel();
+        Semester = new javax.swing.JLabel();
+        Matkul = new javax.swing.JLabel();
+        Deadline = new javax.swing.JLabel();
+        Status = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,18 +67,7 @@ public class ShowData extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Edit Data");
-
-        Keterangan.setColumns(20);
-        Keterangan.setRows(5);
-        jScrollPane1.setViewportView(Keterangan);
-
-        jButton1.setText("Confirm");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jLabel7.setText("Lihat Data");
 
         jButton2.setText("Close");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -115,33 +76,27 @@ public class ShowData extends javax.swing.JFrame {
             }
         });
 
-        semester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Semester...", "1", "2", "3", "4", "5", "6", "7", "8", "Matkul Pilihan Genap", "Matkul Pilihan Ganjil", "Lainnya" }));
-        semester.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                semesterItemStateChanged(evt);
-            }
-        });
+        Keterangan.setText("-");
 
-        Matkul.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Matkul..." }));
+        Nama.setText("-");
 
-        status.add(penting1);
-        penting1.setText("Tugas Penting");
-        penting1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                penting1ActionPerformed(evt);
-            }
-        });
+        Semester.setText("-");
 
-        status.add(gapenting);
-        gapenting.setText("Tugas Ga Penting");
+        Matkul.setText("-");
 
-        deadlinelbl.setText("-");
+        Deadline.setText("-");
+
+        Status.setText("-");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(140, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -150,37 +105,18 @@ public class ShowData extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)))
                     .addComponent(jLabel4)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Keterangan)
                     .addComponent(Nama)
-                    .addComponent(semester, 0, 202, Short.MAX_VALUE)
-                    .addComponent(Deadline, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Matkul, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deadlinelbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(43, 43, 43))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel6)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(penting1)
-                                .addGap(18, 18, 18)
-                                .addComponent(gapenting)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18))
+                    .addComponent(Semester)
+                    .addComponent(Matkul)
+                    .addComponent(Deadline)
+                    .addComponent(Status))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,36 +125,31 @@ public class ShowData extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(Nama))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(semester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Semester))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(Matkul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Matkul))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(deadlinelbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Deadline, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Deadline))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(penting1)
-                    .addComponent(gapenting))
+                    .addComponent(Status))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(jLabel6)
+                    .addComponent(Keterangan))
+                .addGap(80, 80, 80)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -228,73 +159,6 @@ public class ShowData extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void penting1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_penting1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_penting1ActionPerformed
-
-    private void semesterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_semesterItemStateChanged
-        // TODO add your handling code here:
-        if (semester.getSelectedItem().equals("1")){
-            MatkulList("Bahasa Indonesia","Bahasa Inggris","Dasar Komputer dan Pemrograman","Fisika Dasar 1","Kalkulus 1","Olah Raga","Pancasila","Pendidikan Agama","Teknologi Informasi","","","");
-        }
-        else if (semester.getSelectedItem().equals("2")){
-            MatkulList("Algoritma dan Pemrograman","Elektronika Dasar","Fisika Dasar 2","Kalkulus 2","Kewarganegaraan","Konsep Jaringan Komputer","Praktikum DKP","Praktikum Fisdas 1","Sistem Digital","","","");
-        }
-        else if (semester.getSelectedItem().equals("3")){
-            MatkulList("Dasar Sistem Kendali","Kewirausahaan","Matematika Teknik","Organisasi Komputer","Pengantar Perangkat Bergerak","Praktikum Fisdas 2","Praktikum Sisdig","Sistem Operasi","Struktur Data","Teknik Antarmuka dan Periferal","Teknik Mikroprosesor","");
-
-        }
-        else if (semester.getSelectedItem().equals("4")){
-            MatkulList("Arsitektur Komputer","Jaringan Komputer 1","Kecakapan Antar Personal","Kriptografi","Metodologi Penelitian","Pemrograman Bergerak","Praktikum TAP","Praktikum TM","Sistem Basis Data","Teknik Telekomunikasi Seluler","Tranduser dan Sensor","");
-        }
-        else if (semester.getSelectedItem().equals("5")){
-            MatkulList("Bahasa Pemrograman Rakitan","Jaringan Komputer 2","Metode Numerik","Pemrograman Berorientasi Obyek","Praktikum Jarkom 1","Praktikum PPB","Praktikum SBD","Probabilitas dan Statistik","Rekayasa Perangkat Lunak","Robotika","Sistem Digital Lanjut","Sistem Tertanam");
-        }
-        else if (semester.getSelectedItem().equals("6")){
-            MatkulList("Etika Profesi","Jaringan Komputer Lanjut","Kerja Praktek","Multimedia","Praktikum Jarkom 2","Praktikum Robotika","Praktikum RPL","Praktikum Sisdig Lanjut","Rekayasa Perangkat Lunak Berbasis Komponen","Sistem Operasi Waktu Nyata","","");
-        }
-        else if (semester.getSelectedItem().equals("7")){
-            MatkulList("Interaksi Manusia dan Komputer","Manajemen Trafik","Pemrograman Jaringan","Praktikum Jarkom Lanjut","Praktikum Multimedia","Praktikum RPL Berbasis Komponen","","","","","","");
-        }
-        else if (semester.getSelectedItem().equals("8")){
-            MatkulList("Kuliah Kerja Lapangan","Kuliah Kerja Nyata","Tugas Akhir","","","","","","","","","");
-        }
-        else if (semester.getSelectedItem().equals("Matkul Pilihan Genap")){
-            MatkulList("Desain Sistem VLSI","Jaringan Syaraf Tiruan","Keamanan Jaringan Komputer","Kecerdasan Buatan","Logika Fuzzy","Pemrograman Game","Pemrograman Java","Pengolahan Citra dan Pengenalan Pola","Perencanaan Strategis Sistem dan Teknologi Informasi","Sistem Informasi","Sistem Terintegrasi","Telekomunikasi Satelit");
-        }
-        else if (semester.getSelectedItem().equals("Matkul Pilihan Ganjil")){
-            MatkulList("Data Mining","Grafika Komputer","Keamanan Sistem Informasi","Pemrograman Basis Data","Pemrograman Berorientasi Objek Lanjut","Pengenalan Ucapan","Pengolahan Paralel","Pengolahan Sinyal","Perancangan Mikroprosesor","Sistem Tertanam dan Terdistribusi","","");
-        }
-        else {
-           MatkulList("Lainnya","","","","","","","","","","",""); 
-        }
-    }//GEN-LAST:event_semesterItemStateChanged
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        ProgramUtama utama1 = new ProgramUtama();
-        Nama.setText(Nama.getText());
-        halo.setNama(Nama.getText());
-        String Semester = semester.getSelectedItem().toString();
-        halo.setSemester(Semester);
-        String matkul = Matkul.getSelectedItem().toString();
-        halo.setMatkul (matkul);
-        String deadline = ((JTextField)Deadline.getDateEditor().getUiComponent()).getText();
-        halo.setDeadline(deadline);
-        Keterangan.setText(Keterangan.getText());
-        halo.setKeterangan(Keterangan.getText());
-        String Status = status.getSelection().getActionCommand();
-        halo.setStatus(Status);
-        if (Nama.getText().trim().isEmpty()|| Semester=="Pilih Semester..." || matkul=="Pilih Matkul..." || deadline.trim().isEmpty() || Keterangan.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(null, "ISI DENGAN LENGKAP", "WARNING", HEIGHT);
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "data berhasil ditambahkan", "SUCCESSFULLY", HEIGHT);
-            DefaultTableModel model= (DefaultTableModel) utama1.list.getModel();
-            model.addRow(new Object[]{halo.getNama(),halo.getSemester(),halo.getMatkul(),halo.getDeadline(),halo.getStatus(),halo.getKeterangan()});
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,13 +196,12 @@ public class ShowData extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public com.toedter.calendar.JDateChooser Deadline;
-    public javax.swing.JTextArea Keterangan;
-    public javax.swing.JComboBox<String> Matkul;
-    public javax.swing.JTextField Nama;
-    public javax.swing.JLabel deadlinelbl;
-    public javax.swing.JRadioButton gapenting;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JLabel Deadline;
+    public javax.swing.JLabel Keterangan;
+    public javax.swing.JLabel Matkul;
+    public javax.swing.JLabel Nama;
+    public javax.swing.JLabel Semester;
+    public javax.swing.JLabel Status;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -347,9 +210,5 @@ public class ShowData extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JRadioButton penting1;
-    public javax.swing.JComboBox<String> semester;
-    public javax.swing.ButtonGroup status;
     // End of variables declaration//GEN-END:variables
 }

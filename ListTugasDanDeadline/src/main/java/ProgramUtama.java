@@ -52,29 +52,6 @@ public class ProgramUtama extends javax.swing.JFrame {
         }
     }
     
-    /*public void AddRow(Object[] dataRow) {
-        namatgs.setText(namatgs.getText());
-        halo.setNama(namatgs.getText());
-        String Semester = semester.getSelectedItem().toString();
-        halo.setSemester(Semester);
-        String Matkul = listmatkul.getSelectedItem().toString();
-        halo.setMatkul (Matkul);
-        String Deadline = ((JTextField)deadline.getDateEditor().getUiComponent()).getText();
-        halo.setDeadline(Deadline);
-        keterangan.setText(keterangan.getText());
-        halo.setKeterangan(keterangan.getText());
-        String Status = status.getSelection().getActionCommand();
-        halo.setStatus(Status);
-        if (namatgs.getText().trim().isEmpty()|| Semester=="Pilih Semester..." || Matkul=="Pilih Matkul..." || Deadline.trim().isEmpty() || keterangan.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(null, "ISI DENGAN LENGKAP", "WARNING", HEIGHT);
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "data berhasil ditambahkan", "SUCCESSFULLY", HEIGHT);
-            DefaultTableModel model= (DefaultTableModel) list.getModel();
-            model.addRow(new Object[]{halo.getNama(),halo.getSemester(),halo.getMatkul(),halo.getDeadline(),halo.getStatus(),halo.getKeterangan()});
-        }
-    }*/
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -396,17 +373,10 @@ public class ProgramUtama extends javax.swing.JFrame {
         show.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         show.Nama.setText(halo.getNama());
-        show.semester.setSelectedItem(halo.getSemester());
-        show.Matkul.setSelectedItem(halo.getMatkul());
-        show.deadlinelbl.setText(halo.getDeadline());
-        deadline.setDate(null);
-        if (Status == "Penting") {
-            show.penting1.setSelected(true);
-        }
-        else {
-            String a = "halo.gapenting";
-            show.gapenting.setSelected(true);
-        }
+        show.Semester.setText(halo.getSemester());
+        show.Matkul.setText(halo.getMatkul());
+        show.Deadline.setText(halo.getDeadline());
+        show.Status.setText(halo.getStatus());
         show.Keterangan.setText(halo.getKeterangan());
     }//GEN-LAST:event_listMouseClicked
 
