@@ -1,4 +1,5 @@
 
+import java.util.Set;
 import javax.swing.*;
 
 /*
@@ -85,10 +86,20 @@ public class Login extends javax.swing.JFrame {
         LoginBtn.setBounds(230, 240, 70, 23);
 
         ClearBtn.setText("Clear");
+        ClearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(ClearBtn);
         ClearBtn.setBounds(370, 240, 80, 23);
 
         HintBtn.setText("Hint");
+        HintBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HintBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(HintBtn);
         HintBtn.setBounds(300, 280, 70, 23);
 
@@ -101,10 +112,14 @@ public class Login extends javax.swing.JFrame {
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
         // TODO add your handling code here:
-        String pass = new String(Pass.getPassword());
-        String user = new String(User.getText());
-        userService satu = new userService( user, pass );
-        boolean status = satu.checkCredential();
+        SetterGetter halo = new SetterGetter();
+        String password = new String(Pass.getPassword());
+        halo.setPassword(password);
+        halo.setUsername(User.getText());
+        String pass = new String(halo.getPassword());
+        String user = new String(halo.getUsername());
+        userService satu = new userService( user, pass ); //membuat objek
+        boolean status = satu.checkCredential(); //memanggil return dari checkcredentials
         if(status == true) //jika input sesuai dengan data constructor akan mengoutputkan ini
         {
             JOptionPane.showMessageDialog(null,"Login Sukses");
@@ -117,6 +132,17 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Login Gagal");
         }                                        
     }//GEN-LAST:event_LoginBtnActionPerformed
+
+    private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtnActionPerformed
+        // TODO add your handling code here:
+        Pass.setText("");
+        User.setText("");
+    }//GEN-LAST:event_ClearBtnActionPerformed
+
+    private void HintBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HintBtnActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null,"Username : satrio \nPassword : 12345");
+    }//GEN-LAST:event_HintBtnActionPerformed
 
     /**
      * @param args the command line arguments
