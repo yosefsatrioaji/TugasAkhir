@@ -44,12 +44,13 @@ public class ShowData extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        Keterangan = new javax.swing.JLabel();
         Nama = new javax.swing.JLabel();
         Semester = new javax.swing.JLabel();
         Matkul = new javax.swing.JLabel();
         Deadline = new javax.swing.JLabel();
         Status = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Keterangan = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,8 +77,6 @@ public class ShowData extends javax.swing.JFrame {
             }
         });
 
-        Keterangan.setText("-");
-
         Nama.setText("-");
 
         Semester.setText("-");
@@ -87,6 +86,11 @@ public class ShowData extends javax.swing.JFrame {
         Deadline.setText("-");
 
         Status.setText("-");
+
+        Keterangan.setEditable(false);
+        Keterangan.setColumns(20);
+        Keterangan.setRows(5);
+        jScrollPane1.setViewportView(Keterangan);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,12 +114,12 @@ public class ShowData extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Keterangan)
                     .addComponent(Nama)
                     .addComponent(Semester)
                     .addComponent(Matkul)
                     .addComponent(Deadline)
-                    .addComponent(Status))
+                    .addComponent(Status)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -144,10 +148,10 @@ public class ShowData extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(Status))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(Keterangan))
-                .addGap(80, 80, 80)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -197,7 +201,7 @@ public class ShowData extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel Deadline;
-    public javax.swing.JLabel Keterangan;
+    public javax.swing.JTextArea Keterangan;
     public javax.swing.JLabel Matkul;
     public javax.swing.JLabel Nama;
     public javax.swing.JLabel Semester;
@@ -210,5 +214,6 @@ public class ShowData extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
